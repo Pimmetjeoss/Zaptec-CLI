@@ -1,0 +1,9 @@
+# Binaries
+zaptec-pp-cli
+zaptec-pp-cli.exe
+zaptec-pp-mcp
+zaptec-pp-mcp.exe
+*.exe
+# Local state
+*.db
+config.toml
