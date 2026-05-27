@@ -31,6 +31,18 @@ Log in once with your Zaptec portal account (OAuth2 password grant); the bearer 
 ```bash
 zaptec-pp-cli auth login
 ```
+
+## Scripts
+
+[`scripts/charge-to.ps1`](scripts/charge-to.ps1) — charge to a target battery percentage (default 80%). Because the charger can't read the car's state of charge, you pass the current percentage and it estimates progress from delivered energy, then pauses at the target:
+
+```powershell
+$env:ZAPTEC_CHARGER_ID = "<your-charger-id>"   # find with: zaptec-pp-cli chargers list
+./scripts/charge-to.ps1 -StartPercent 66                       # -> charges to 80%
+./scripts/charge-to.ps1 -StartPercent 50 -Target 90 -CapacityKwh 59
+```
+
+It estimates `start% + delivered_kWh * efficiency / usable_capacity`; tune `-CapacityKwh` and `-Efficiency` for your car. Note the charger can enable charging but the car may still refuse (e.g. an in-car charge timer) — the script warns when no power flows.
 ## Install for Hermes
 
 From the Hermes CLI:
