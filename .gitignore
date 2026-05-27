@@ -1,8 +1,8 @@
-# Binaries
-zaptec-pp-cli
-zaptec-pp-cli.exe
-zaptec-pp-mcp
-zaptec-pp-mcp.exe
+# Built binaries (repo-root only — do not match cmd/ source dirs)
+/zaptec-pp-cli
+/zaptec-pp-cli.exe
+/zaptec-pp-mcp
+/zaptec-pp-mcp.exe
 *.exe
 # Local state
 *.db
